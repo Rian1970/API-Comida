@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from src.config import ConfigMySQL  # Importar configuración
 
 # Configurar la conexión a MySQL usando SQLAlchemy
-DATABASE_URL = f"mysql+pymysql://{ConfigMySQL.MYSQL_USER}:{ConfigMySQL.MYSQL_PASSWORD}@{ConfigMySQL.MYSQL_HOST}/{ConfigMySQL.MYSQL_DB}"
+DATABASE_URL = ConfigMySQL.database_url()
 
 #Conecta a la base de datos y las consultas se habilitan para ver en consola
 engine = create_engine(DATABASE_URL, echo=True)
